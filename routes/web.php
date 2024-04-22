@@ -34,4 +34,4 @@ require __DIR__.'/auth.php';
 
 
 // rotta per admin manager
-Route::get('/admin',[DashboardController::class,'index']);
+Route::get('/admin',[DashboardController::class,'index'])->middleware(['auth']);

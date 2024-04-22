@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ProjectController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -34,4 +35,13 @@ require __DIR__.'/auth.php';
 
 
 // rotta per admin manager
-Route::get('/admin',[DashboardController::class,'index'])->middleware(['auth']);
+Route::middleware(['auth', 'verified'])
+->name('admin.')
+->prefix('admin')
+->group(function(){
+
+    Route::get('/',[DashboardController::class,'index'])->name('index');
+    Route::get('/projects', [ProjectController::class, 'index'])->name('projects.index');
+
+
+});

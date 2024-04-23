@@ -32,13 +32,13 @@
         
             {{-- Types input --}}
             <div class="mb-4">
-                <label for="Types" class="form-label">Project Types</label>
+                <label for="types" class="form-label">Project Types</label>
                 <select class="form-select" id="types" name="types">
-                    <option value="0">laravel/vite</option>
-                    <option value="1">vite</option>
-                    <option value="2">vue</option>
-                    <option value="3">html</option>
-                    <option value="4">javascript</option>
+                    <option value="laravel/vite" {{ old('types') == 'laravel/vite' ? 'selected' : '' }}>laravel/vite</option>
+                    <option value="vite" {{ old('types') == 'vite' ? 'selected' : '' }}>vite</option>
+                    <option value="vue" {{ old('types') == 'vue' ? 'selected' : '' }}>vue</option>
+                    <option value="php" {{ old('types') == 'php' ? 'selected' : '' }}>php</option>
+                    <option value="javascript" {{ old('types') == 'javascript' ? 'selected' : '' }}>javascript</option>
                 </select>
             </div>
         

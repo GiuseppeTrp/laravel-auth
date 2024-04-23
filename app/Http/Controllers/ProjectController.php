@@ -50,12 +50,21 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        //
+        return view('admin.projects.edit', compact('project'));
+
     }
     public function update(UpdateProjectRequest $request, Project $project)
-    {
-        //
-    }
+{
+    $project->title = $request->title;
+    $project->description = $request->description;
+    $project->img = $request->img;
+    $project->types = $request->types;
+    $project->link = $request->link;
+    $project->save();
+
+    return redirect()->route('admin.projects.show', $project->id);
+}
+
     public function destroy(Project $project)
     {
         $project->delete();

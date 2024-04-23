@@ -13,7 +13,7 @@
             
         @endforeach
         <div>
-            <a href="{{ route('admin.projects.create') }}" class="btn btn-sm btn-outline-success text-uppercase">crate a new project</a>
+            <a href="{{ route('admin.projects.create') }}" class="btn btn-sm btn-outline-success text-uppercase text-decoration-none">create a new project</a>
 
 
         </div>

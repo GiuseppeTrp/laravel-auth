@@ -41,7 +41,10 @@ Route::middleware(['auth', 'verified'])
 ->group(function(){
 
     Route::get('/',[DashboardController::class,'index'])->name('index');
-    Route::get('/projects', [ProjectController::class, 'index'])->name('projects.index');
+    Route::get('/users', [DashboardController::class, 'users'])->name('users');
+
+
+    Route::resource('projects', ProjectController::class);
 
 
 });

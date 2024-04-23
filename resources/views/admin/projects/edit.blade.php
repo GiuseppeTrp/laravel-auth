@@ -1,5 +1,9 @@
 @extends('layouts.app')
+
 @section('content')
-<h1>Pagina Progetti</h1>
-    
+    <div class="container">
+
+
+
+    </div>
 @endsection

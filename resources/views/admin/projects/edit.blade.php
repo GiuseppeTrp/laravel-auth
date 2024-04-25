@@ -39,6 +39,7 @@
                 {{ $message }}
             </div>
             @enderror
+            
         </div>
 
         {{-- Types input --}}

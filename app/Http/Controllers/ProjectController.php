@@ -25,6 +25,9 @@ class ProjectController extends Controller
     public function store(StoreProjectRequest $request)
 
     {
+        $request->validated();
+        
+
         if($request->hasFile('cover_image')){
             $path = Storage::disk('public')->put('projects_images', $request->cover_image);
 
@@ -32,13 +35,12 @@ class ProjectController extends Controller
         }
         
     
-        $request->validated();
 
         $project = new Project();
         $project->title = $request->title;
         $project->description = $request->description;
-        $project->img = $request->img;
         $project->types = $request->types;
+        $project->img = $request->img;
         $project->link = $request->link;
         $project->cover_image = $path;
         $project->save();
@@ -60,29 +62,26 @@ class ProjectController extends Controller
 
     }
     public function update(UpdateProjectRequest $request, Project $project)
-{
-    $request->validated();
-
-    // Verifica se è stata caricata una nuova immagine
-    if ($request->hasFile('cover_image')) {
-        // Salva la nuova immagine e ottieni il percorso
-        $path = Storage::disk('public')->put('projects_images', $request->cover_image);
+    {
+        $request->validated();
         
-       
 
-        // Assegna il nuovo percorso all'immagine di copertina del progetto
+        if($request->hasFile('cover_image')){
+            $path = Storage::disk('public')->put('projects_images', $request->cover_image);
+
+
+        }
+        
+    
+
+        $project = new Project();
+        $project->title = $request->title;
+        $project->description = $request->description;
+        $project->img = $request->img;
+        $project->types = $request->types;
+        $project->link = $request->link;
         $project->cover_image = $path;
-    }
-
-    // Aggiorna le altre proprietà del progetto
-    $project->title = $request->title;
-    $project->description = $request->description;
-    $project->img = $request->img;
-    $project->types = $request->types;
-    $project->link = $request->link;
-
-    // Salva le modifiche
-    $project->save();
+        $project->save();
 
     // Reindirizza alla visualizzazione del progetto aggiornato
     return redirect()->route('admin.projects.show', $project->id);

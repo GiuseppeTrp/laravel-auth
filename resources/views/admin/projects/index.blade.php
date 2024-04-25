@@ -5,7 +5,7 @@
         <ul class="list-group">
             @foreach ($projects as $project)
                 <li class="list-group-item d-flex flex-column  text-center border text-uppercase fw-bold">
-                    <a href="{{ route('admin.projects.show', ['project' => $project->id]) }}" class="py-2 text-decoration-none">Project {{ $project->title }}</a>
+                    <a href="{{ route('admin.projects.show', ['project' => $project->id]) }}" class="py-2 text-decoration-none"> {{ $project->title }}</a>
                 </li>
             @endforeach
         </ul>

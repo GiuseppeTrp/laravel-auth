@@ -29,16 +29,18 @@
                 @enderror
             </div>
         
-            {{-- img input --}}
-            <div class="mb-4 pt-4">
+             <div class="mb-4 pt-4 pb-0 mb-0">
                 <label for="img" class="form-label">Project image</label>
-                <input type="text" class="form-control @error('img') is-invalid @enderror" id="img" name="img" placeholder="">
+                <input type="text" class="text-secondary form-control @error('img') is-invalid @enderror" id="img" name="img" value="//">
+                <input type="file" class="form-control @error('cover_image') is-invalid @enderror" id="cover_image" name="cover_image">
+
                 @error('img')
                     <div class="invalid-feedback">
                         {{ $message }}
                     </div>
                 @enderror
             </div>
+            
         
             {{-- Types input --}}
             <div class="mb-4">
@@ -69,16 +71,7 @@
                 @enderror
             </div>
 
-            <div class="mb-4">
-                <label for="cover_image"> Cover image</label>
-                <input type="file" class="form-control @error('cover_image') is-invalid @enderror" id="cover_image" name="cover_image">
-                
-                @error('cover_image')
-                    <div class="invalid-feedback">
-                        {{ $message }}
-                    </div>
-                @enderror
-            </div>
+            
         
 
 
@@ -86,4 +79,10 @@
         </form>
         
     </div>
+ects</a>
+
+        </form>
+        
+    </div>
+
 @endsection

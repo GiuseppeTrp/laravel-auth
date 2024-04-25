@@ -10,13 +10,17 @@
         </div>
         <div class=" pb-4">
             <h5>Image:</h5>
-            <img src="{{asset('storage/'. $project->cover_image)}}" alt="Cover Image" class="container-fluid border rounded p-2 text-dark bg-light">
+            <div class="container w-50  ">
+                <img src="{{asset('storage/'. $project->cover_image)}}" alt="Cover Image" class="container-fluid border rounded p-2 text-dark bg-light">
+
+
+            </div>
         </div>
-        <div class="border-bottom pb-4">
+        <div class=" pb-4">
             <h5>Type:</h5>
             <p class="border rounded p-2 text-dark bg-light fw-bold">{{ $project->types }}</p>
         </div>
-        <div class="border-bottom pb-4">
+        <div class=" pb-4">
             <h5>Link:</h5>
             <p class="border rounded p-2  bg-light fw-bold"><a class="text-dark" href="{{ $project->link }}">{{ $project->link }}</a></p>
         </div>

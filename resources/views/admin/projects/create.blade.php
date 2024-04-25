@@ -4,7 +4,7 @@
     <div class="container">
         <h1>Create a new project</h1>
 
-        <form action="{{ route('admin.projects.store') }}" method="POST">
+        <form action="{{ route('admin.projects.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
         
             {{-- title input --}}
@@ -68,7 +68,20 @@
                     </div>
                 @enderror
             </div>
+
+            <div class="mb-4">
+                <label for="cover_image"> Cover image</label>
+                <input type="file" class="form-control @error('cover_image') is-invalid @enderror" id="cover_image" name="cover_image">
+                
+                @error('cover_image')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                @enderror
+            </div>
         
+
+
             <button type="submit" class="btn btn-primary">Create</button>
         </form>
         

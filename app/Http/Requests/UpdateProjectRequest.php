@@ -22,12 +22,12 @@ class UpdateProjectRequest extends FormRequest
     public function rules(): array
     {
         return [
-            // vlaidation rules
+            // validation rules
 
             'title' => 'required|string',
             'description' => 'required|string',
             'img' => 'required|string',
-            'tecnologies' => 'required|string',
+            'types' => 'required|string',
             'link' => 'required|string',
         ];
     }
@@ -38,7 +38,7 @@ class UpdateProjectRequest extends FormRequest
             'title.required' => 'Title is required',
             'description.required' => 'Description is required',
             'img.required' => 'Image is required',
-            'type.required' => 'Type is required',
+            'types.required' => 'Type is required',
             'link.required' => 'Link is required',
         ];
     }

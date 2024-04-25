@@ -21,7 +21,7 @@
                 </div>
                 <div class="text-center py-5" >
                     
-                    <a href="{{ route('admin.projects.index') }}" class="btn btn-sm btn-outline-success text-uppercase ">Show all project</a>
+                    <a href="{{ route('admin.projects.index') }}" class="btn btn btn-outline-success text-uppercase fw-bold ">Show all project</a>
 
                 </div>
             </div>

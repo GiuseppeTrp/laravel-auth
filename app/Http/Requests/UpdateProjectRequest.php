@@ -20,26 +20,29 @@ class UpdateProjectRequest extends FormRequest
      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
      */
     public function rules(): array
-    {
-        return [
-            // validation rules
+{
+    return [
+        // validation rules
+        'title' => 'required|string',
+        'description' => 'required|string',
+        'img' => 'required|string',
+        'types' => 'required|string',
+        'link' => 'required|string',
+        'cover_image' => 'nullable|max:255'
+    ];
+}
 
-            'title' => 'required|string',
-            'description' => 'required|string',
-            'img' => 'required|string',
-            'types' => 'required|string',
-            'link' => 'required|string',
-        ];
-    }
+public function messages(): array
+{
+    return [
+        'title.required' => 'Title is required',
+        'title.unique' => 'The title already exists',
+        'description.required' => 'Description is required',
+        'img.required' => 'Image is required',
+        'types.required' => 'Type is required',
+        'link.required' => 'Link is required',
+        'cover_image.max' => 'Cover image must not exceed 255 characters'
+    ];
+}
 
-    public function message(): array
-    {
-        return [
-            'title.required' => 'Title is required',
-            'description.required' => 'Description is required',
-            'img.required' => 'Image is required',
-            'types.required' => 'Type is required',
-            'link.required' => 'Link is required',
-        ];
-    }
 }
